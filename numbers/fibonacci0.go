@@ -3,11 +3,13 @@
 package main
 
 import (
+	"flag"
 	"fmt"
 )
 
 func fibSequence(n int) {
-	// Generates a fibonacci sequence with the size of n
+	/* Generates a fibonacci sequence
+	with the size of n */
 	fib := []int{0, 1}
 	for len(fib) <= n {
 		fib = append(fib, fib[len(fib)-2]+fib[len(fib)-1])
@@ -16,17 +18,14 @@ func fibSequence(n int) {
 }
 
 func main() {
-	// Getting n from the command line
+	// Getting n as a flag
 	var n int
-	fmt.Println("How many numbers do you need?")
-	_, err := fmt.Scanf("%d", &n)
-	if err != nil {
-		fmt.Println("Error:", err)
-		return
-	}
+	flag.IntVar(&n, "len", 7, "sequence length")
+	flag.Parse()
 	if n < 1 {
 		fmt.Println("Error:", n, "is too low")
 		return
 	}
+	fmt.Println(n)
 	fibSequence(n)
 }
