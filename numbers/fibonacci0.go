@@ -8,8 +8,7 @@ import (
 )
 
 func fibSequence(n int) {
-	/* Generates a fibonacci sequence
-	with the size of n */
+	// Generates a fibonacci sequence with the size of n
 	fib := []int{0, 1}
 	for len(fib) <= n {
 		fib = append(fib, fib[len(fib)-2]+fib[len(fib)-1])
@@ -26,6 +25,5 @@ func main() {
 		fmt.Println("Error:", n, "is too low")
 		return
 	}
-	fmt.Println(n)
 	fibSequence(n)
 }
