@@ -40,14 +40,14 @@ func main() {
 	var coord []float64
 	i := [4]string{"latitude of the first point", "longitude of the first point", "latitude of the second point", "longitude of the second point"}
 	for j := 0; j < 4; j++ {
-		fmt.Println("Enter the" + i[j])
+		fmt.Println("Enter the " + i[j])
 		var l float64
 		_, err := fmt.Scanf("%G", &l)
 		if err != nil {
 			fmt.Println("Error:", err)
 			return
 		}
-		coord = append(coord, float64(l))
+		coord = append(coord, l)
 	}
 	fmt.Println(calculate(coord))
 }
