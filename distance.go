@@ -5,8 +5,6 @@ package main
 import (
 	"fmt"
 	"math"
-	"strconv"
-	"strings"
 )
 
 func calculate(coord []float64) float64 {
@@ -40,25 +38,16 @@ func calculate(coord []float64) float64 {
 func main() {
 	// Getting coordinates
 	var coord []float64
-	var point1, point2 string
-	fmt.Println("Enter the coordinates of the first point")
-	_, err := fmt.Scan(&point1)
-	if err != nil {
-		fmt.Println("Error:", err)
-		return
-	}
-	fmt.Println("Enter the coordinates of the second point")
-	_, err = fmt.Scan(&point2)
-	if err != nil {
-		fmt.Println("Error:", err)
-		return
-	}
-	input := strings.Split(point1+" "+point2, " ")
-	for _, s := range input {
-		num, err := strconv.ParseFloat(s, 64)
-		if err == nil {
-			coord = append(coord, num)
+	i := [4]string{"latitude of the first point", "longitude of the first point", "latitude of the second point", "longitude of the second point"}
+	for j := 0; j < 4; j++ {
+		fmt.Println("Enter the" + i[j])
+		var l float64
+		_, err := fmt.Scanf("%G", &l)
+		if err != nil {
+			fmt.Println("Error:", err)
+			return
 		}
+		coord = append(coord, float64(l))
 	}
-	calculate(coord)
+	fmt.Println(calculate(coord))
 }
